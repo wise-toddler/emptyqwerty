@@ -15,5 +15,5 @@ public static void main(String[] args) {
             System.out.print(Math.pow(i-n,2)+Math.pow(j-n,2)>=n*n?"  ":"* ");
         }System.out.println();
     }
-}
+sc.close();}
 }
