@@ -1,4 +1,6 @@
-import java.util.Scanner;
+package kshitjSir;
+
+//import java.util.Scanner;
 
 class Array21Aug
 {

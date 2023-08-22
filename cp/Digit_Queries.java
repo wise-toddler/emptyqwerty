@@ -111,7 +111,7 @@
 //         sc.close();
 //     }
 // }
-
+package cp;
 import java.util.*;
 
 public class Digit_Queries{

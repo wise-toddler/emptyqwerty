@@ -1,3 +1,5 @@
+package kshitjSir;
+
 import java.util.Scanner;
 
 class calculator
