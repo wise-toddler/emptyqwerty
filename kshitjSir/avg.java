@@ -1,3 +1,4 @@
+package kshitjSir;
 import java.util.Scanner;
 
 public class avg
