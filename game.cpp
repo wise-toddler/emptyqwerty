@@ -41,6 +41,7 @@ int main() {
     int x; cin >> x;
 
     f(x, x);
+    sqrt
 
     for(int i = 0; i <= x; ++i) {
         for(int j = 0; j <= x; ++j) {
