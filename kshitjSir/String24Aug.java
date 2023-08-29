@@ -66,7 +66,8 @@ class String24
             if(s.charAt(i)=='!'|| s.charAt(i) == '@' || s.charAt(i)=='$' || s.charAt(i)=='%'||s.charAt(i)=='^'||s.charAt(i)=='&')
                 return true;
             return false;
-    }
+    }   
+    
     public static String passStrength(String s)
     {
         int count=0;
@@ -87,9 +88,22 @@ class String24
             default : return "invalid"; 
         }
     }
+    public static String toggleCase(String s)
+    {
+        String t="";
+        for(int i=0;i<s.length();i++)
+        {
+            if('A'<=s.charAt(i) && s.charAt(i)<='Z')
+                t+=(char)(s.charAt(i)+32);
+            else 
+                t+=(char)(s.charAt(i)-32);
+        }
+        return t;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println(passStrength(sc.next()));
+        System.out.println(toggleCase(sc.next()));
     sc.close();
     }
+
 }

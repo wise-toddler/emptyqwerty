@@ -93,6 +93,7 @@ public class ImageEditorApp {
     
         frame.setVisible(true); // Make the frame visible
     }
+
     public void saveImage() {
         if (editedImage != null) {
             JFileChooser fileChooser = new JFileChooser();
@@ -111,7 +112,6 @@ public class ImageEditorApp {
             }
         }
     }
-        
 
     public void openImage() {
         JFileChooser fileChooser = new JFileChooser();
