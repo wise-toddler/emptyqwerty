@@ -1,5 +1,12 @@
 {
     "java.project.sourcePaths": [
         "."
-    ]
+    ],
+    "files.associations": {
+        "COMMIT_EDITMSG": "java",
+        "*.tcc": "c",
+        "cmath": "c",
+        "complex": "c",
+        "random": "c"
+    }
 }
