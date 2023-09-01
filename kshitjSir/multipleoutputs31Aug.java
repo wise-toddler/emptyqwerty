@@ -1,4 +1,5 @@
-import java.util.Arrays;
+package kshitjSir;
+
 import java.util.Scanner;
 
 public class multipleoutputs31Aug

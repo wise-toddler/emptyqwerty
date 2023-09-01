@@ -1,4 +1,4 @@
-cdpackage kshitjSir;
+package kshitjSir;
 class Arrays22Ayg
 {
     public static void printarr(int a[][])
