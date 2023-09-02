@@ -18,7 +18,11 @@ int main() {
 
     ai[0]=a[0]*p;
     ak[n-1]=a[n-1]*r;
-
+    if(n==1)
+    {
+        cout<<a[0]*(p+q+r)<<endl;
+        return 0;
+    }
     for (int i = 1; i < n-1; i++) 
     {
         ai[i]=max(ai[i-1],a[i]*p);
