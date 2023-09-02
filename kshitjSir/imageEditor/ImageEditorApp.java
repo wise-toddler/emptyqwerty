@@ -130,6 +130,15 @@ public class ImageEditorApp {
                         });rotItem.add(right);
                         editMenu.add(rotItem); 
                     }
+                    // crop
+                    {
+                        JMenuItem cropItem = new JMenuItem("Crop");
+                        cropItem.addActionListener(new ActionListener() {
+                            public void actionPerformed(ActionEvent e) {
+                                crop(); // call the crop function
+                            }
+                        });editMenu.add(cropItem);
+                    }
                     menuBar.add(editMenu); // Add the "Edit" menu to the menu bar
                 }
 
@@ -162,7 +171,8 @@ public class ImageEditorApp {
     }
 
     // open image function
-    public void openImage() {
+    public void openImage() 
+    {
         JFileChooser fileChooser = new JFileChooser();
         int result = fileChooser.showOpenDialog(frame);
         if (result == JFileChooser.APPROVE_OPTION) {
@@ -194,7 +204,7 @@ public class ImageEditorApp {
     }
     
     // invert function
-    public void invertImage()
+    public void invertImage() 
     {
         int height=editedImage.getHeight();
         int width=editedImage.getWidth();
@@ -209,17 +219,17 @@ public class ImageEditorApp {
     }
 
     // brightness function
-    public void changeBrightness() {
+    public void changeBrightness() 
+    {
         int height=editedImage.getHeight();
         int width=editedImage.getWidth();
         String brightness = JOptionPane.showInputDialog(frame, "Enter brightness adjustment (-100 to 100):");
         try {
             int adjustment = Integer.parseInt(brightness);
-            if (adjustment < -100) {
+            if (adjustment < -100) 
                 adjustment = -100;
-            } else if (adjustment > 100) {
+            else if (adjustment > 100) 
                 adjustment = 100;
-            }
 
             for (int x = 0; x < height; x++) {
                 for (int y = 0; y < width; y++) 
@@ -354,6 +364,32 @@ public class ImageEditorApp {
             }
         }
         displayImage(editedImage);
+    }
+    
+    // crop function
+    public void crop()
+    {
+        try
+        {
+            int height=editedImage.getHeight();
+            int width=editedImage.getWidth();
+            int x1= Integer.parseInt(JOptionPane.showInputDialog(frame, "Enter left margin: less than "+(width-1)));
+            int x2= Integer.parseInt(JOptionPane.showInputDialog(frame, "Enter right margin: less than "+(width-x1)));
+            int y1= Integer.parseInt(JOptionPane.showInputDialog(frame, "Enter top margin: less than "+(height-1)));
+            int y2= Integer.parseInt(JOptionPane.showInputDialog(frame, "Enter bottom margin: less than "+(height-y1)));
+            BufferedImage outImg=new BufferedImage(width-x1-x2,height-y1-y2,BufferedImage.TYPE_3BYTE_BGR);
+            for(int i=y1;i<height-y2;i++)
+            {
+                for(int j=x1;j<width-x2;j++)
+                    outImg.setRGB(j-x1,i-y1,editedImage.getRGB(j,i));
+            }
+            editedImage=outImg;
+            displayImage(editedImage);
+        }
+        catch(NumberFormatException e)
+        {
+            JOptionPane.showMessageDialog(frame, "Invalid input. Please enter a valid number.");
+        }
     }
 
     public void displayImage(BufferedImage image) {
