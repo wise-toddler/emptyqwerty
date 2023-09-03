@@ -1,5 +1,5 @@
 package cp;
-
+//https://cses.fi/problemset/task/2431
 
 // //import java.lang.*;
 // import java.util.*;
@@ -113,7 +113,9 @@ package cp;
 //         sc.close();
 //     }
 // }
-// package cp;
+
+
+
 import java.util.*;
 
 public class Digit_Queries{

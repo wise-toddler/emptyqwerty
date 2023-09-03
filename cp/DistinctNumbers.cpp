@@ -1,3 +1,7 @@
+// https://cses.fi/problemset/task/1621
+// https://github.com/DhruvPasricha/SST-Competitive-Programming-Club/blob/main/Week-1/Day-1.md
+
+
 // #include <iostream>
 // #include <vector>
 // using namespace std;
@@ -26,7 +30,9 @@
 //     }
 //     cout << final.size();
 // }
+
 //TLE coz n*(n+1)/2 iterations
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

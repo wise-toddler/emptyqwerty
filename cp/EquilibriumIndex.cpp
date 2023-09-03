@@ -1,3 +1,4 @@
+//https://www.codingninjas.com/studio/problems/equilibrium-index_893014
 #include <bits/stdc++.h> 
 int findEquilibriumIndex(vector<int>& a) {
     // Write your code here.

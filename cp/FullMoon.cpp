@@ -1,3 +1,4 @@
+// https://atcoder.jp/contests/abc318/tasks/abc318_a
 #include <iostream>
 using namespace std;
 
