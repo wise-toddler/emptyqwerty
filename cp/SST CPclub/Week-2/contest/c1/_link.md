@@ -1,1 +1,0 @@
-[contest link](https://www.codechef.com/SEP23D)
