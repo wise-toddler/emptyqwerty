@@ -1,10 +1,6 @@
 // https://github.com/DhruvPasricha/SST-Competitive-Programming-Club/blob/main/Week-1/Day-4.md
 // https://codeforces.com/problemset/problem/855/B
-#include "bits/stdc++.h"
-#include <cmath>
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
