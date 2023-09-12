@@ -7,6 +7,8 @@
         "*.tcc": "c",
         "cmath": "c",
         "complex": "c",
-        "random": "c"
-    }
+        "random": "c",
+        "iostream": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
