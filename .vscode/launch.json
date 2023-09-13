@@ -1,6 +1,13 @@
 {
     "configurations": [
         {
+            "type": "java",
+            "name": "Sets13Sep",
+            "request": "launch",
+            "mainClass": "kshitjSir.Sets13Sep",
+            "projectName": "emptyqwerty_c76d42c1"
+        },
+        {
             "name": "C/C++: gcc-11 build and debug active file",
             "type": "cppdbg",
             "request": "launch",

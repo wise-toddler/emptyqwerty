@@ -10,5 +10,5 @@
         "random": "c",
         "iostream": "cpp"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "enabled",
 }
