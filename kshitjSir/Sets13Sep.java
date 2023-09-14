@@ -65,14 +65,17 @@ public class Sets13Sep
                 hm.put(arr[i],1);
         }
         int q=-1;
-        hm.forEach((k,v) -> {
-            if(v>1) 
-            {
-                q=k;
-                break;
-            }
+        // iterator
+        // for(ma
+        // hm.forEach((k,v) -> {
+        //     if(v>1) 
+        //     {
+        //         q=k;
+        //         // break;
+        //     }
 
-        });
+        // });
+        return q;
 
         
 
