@@ -1,3 +1,16 @@
 
 there are x friends in a  group on a trek they want to cross a bridge in midnight they have only 1 torch in there grp and bridge can be crossed in 1 min by atmost n person only at a time. Every person in the group walks at a pace of 10mins. 
 Find the min time in which all can cross the bridge.
+
+
+sample input
+x=5
+n=3
+sample output
+3
+
+explanation
+3 persons will cross the bridge in 1st minute
+then 1 person will come back in 1 min
+then 2 persons+1 that came back =3 will cross the bridge in 1 min
+total time=3min

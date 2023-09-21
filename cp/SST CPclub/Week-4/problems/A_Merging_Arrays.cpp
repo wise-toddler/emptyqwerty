@@ -13,17 +13,37 @@ signed main()
 {
     IOS
     int n,m;cin >> n >> m;
-    multiset<int> st;
-    for(int i =0;i<n;i++)
+    // multiset<int> st;
+    // for(int i =0;i<n;i++)
+    // {
+    //     int x;cin >> x;
+    //     st.insert(x);
+    // }
+    // for(int i =0;i<m;i++)
+    // {
+    //     int x;cin >> x;
+    //     st.insert(x);
+    // }
+    // for(auto it : st)
+    //     cout << it << ' ';
+    
+
+
+    // two pointer approach
+    vi a(n),b(m);
+    for(int i =0;i<n;i++)cin >> a[i];
+    for(int i =0;i<m;i++)cin >> b[i];
+    int i=0,j=0;
+    while(i<n || j<m)
     {
-        int x;cin >> x;
-        st.insert(x);
+        if(i<n and j<m and a[i]<b[j])
+            cout << a[i++] << ' ';
+        else if (i<n and j<m and a[i]>=b[j])
+            cout << b[j++] << ' ';
+        else if(i<n and j==m)
+            cout << a[i++] << ' ';
+        else if(i==n and j<m)
+            cout << b[j++] << ' ';
+
     }
-    for(int i =0;i<m;i++)
-    {
-        int x;cin >> x;
-        st.insert(x);
-    }
-    for(auto it : st)
-        cout << it << ' ';
 }

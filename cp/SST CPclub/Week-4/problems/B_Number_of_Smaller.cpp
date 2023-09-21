@@ -27,8 +27,12 @@ signed main()
         cout << ans << ' ';
     }
     
-}// time complexity O(n+m);
-//last code using multisets was O(?));
+}
+// time complexity O(n+m);
+
+
+
+//last code using multisets was O(n*n*log));
 /*
 multiset<int> st;
 for(int i=0;i<n;i++)
@@ -39,6 +43,6 @@ for(int i=0;i<n;i++)
 for(int i=0;i<m;i++)
 {
     int x;cin >> x;
-    cout <<distance(st.begin(), st.lower_bound()) << ' ';
+    cout <<distance(st.begin(), st.lower_bound()) << ' '; // o(n)
 }
 */
