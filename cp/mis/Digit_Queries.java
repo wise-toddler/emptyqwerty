@@ -1,4 +1,4 @@
-package cp;
+package cp.mis;
 //https://cses.fi/problemset/task/2431
 
 // //import java.lang.*;
