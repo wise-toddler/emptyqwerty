@@ -31,10 +31,25 @@ int binSear(vi &a,int x)
 string revsubstr(string s,int l,int r)
 {
     string ans = s;
-    for(int i=l-1,j=r-1;i<j;i++,j--)
-        swap(ans[i],ans[j]);    
+    cout << "debug : " << ans << endl;
+    for(int i = l-1;i<s.size()/2;i++)
+        swap(ans[i],ans[r-i-1]);
+    cout << "debug2 : " << ans << endl;
     return ans;
 }
+string reverseSubstring(string str, int start, int end)
+{
+    string ans = str;
+    while (start < end)
+    {
+        // Swap characters at start and end indices
+        swap(ans[start], ans[end]);
+        start++;
+        end--;
+    }
+    return ans;
+}
+
 signed main()
 {
     IOS
@@ -49,14 +64,24 @@ signed main()
         for(int i=0;i<k;i++) cin >> r[i] ;
         int q;cin >> q;
         string ans=s;
+        vi seq(n);
         while(q--)
         {
             int x;cin >> x;
             int index = binSear(l,x);
             int a = min(x,l[index]+r[index]-x);
             int b = max(x,l[index]+r[index]-x);
-            if(a!=b)
-                ans = revsubstr(ans,a,b);
+            // if(a!=b)
+            //     ans = revsubstr(ans,a,b);
+            seq[a-1]++;
+        }
+        for(int i=0;i<n;i++)
+        {
+            if(seq[i]%2==1)
+            {
+                ans = reverseSubstring(ans,i,n-i-1);
+                // cout <<"debug: "<< ans << endl;    
+            }
         }
         cout << ans << endl;
     }
