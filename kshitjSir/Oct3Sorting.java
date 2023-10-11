@@ -23,7 +23,7 @@ public class Oct3Sorting
     }
     public static void Bubblesort(int[] arr)
     {
-        int e=0;
+        // int e=0;
         int n=arr.length;
         // for(int i =0;i<n-1;i++)
         // {
