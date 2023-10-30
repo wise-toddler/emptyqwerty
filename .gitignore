@@ -6,3 +6,5 @@ kshitjSir/*.class
 .gitignore
 cp/mis/.cph
 kshitjSir/kshitjSir/
+.venv 
+deepaksir/.venv
