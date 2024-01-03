@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/dp/tasks/dp_b
+// https://codeforces.com/contest/1800/problem/C1
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -12,42 +12,40 @@ using namespace std;
 #define fo1(i,st,en,up) for(int i=st;(i*(up>0?1:-1))<(en*(up>0?1:-1));i+=(up))
 #define deb(x) cout << #x << ": " << x << endl;
 #define TxtIO   freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);
-int n;
-int dp[100001];
 void solve()
-{  
-    int k;cin>>n>>k;
-    vi a(n);
-    for(int &i: a) cin>>i;
-    dp[n]=0;
-
-    
+{
+    int n;cin >> n;
+    vi v(n);
+    fo1(i,0,n,1) cin >> v[i];
+    int ans = 0;
+    multiset<int> s;
+    fo1(i,0,n,1)
+    {
+        if(s.size()==0)
+        {
+            s.insert(v[i]);
+            continue;
+        }
+        if(v[i]==0)
+        {
+            auto it = s.end();
+            it--;
+            ans+=*it;
+            s.erase(it);
+        }
+        else 
+            s.insert(v[i]);
+    }   
+    cout << ans << endl;
 }
 signed main()
 {
     IOS
     //TxtIO
     int t=1;
-    // cin >> t;
+    cin >> t;
     while(t--)
     {
         solve();
     }
 }
-// signed main()
-// {
-//     IOS
-//     int n,k;cin>>n>>k;  
-//     vi a(n);
-//     for(int &i: a) cin>>i;
-//     vi dp(n);
-//     dp[0]=0;
-//     dp[1]=abs(a[1]-a[0]);
-//     for(int i =2;i<n;i++)
-//     {
-//         dp[i]=abs(a[i]-a[i-1])+dp[i-1];
-//         for(int j=2;j<=k && j<=i;j++)
-//             dp[i]=min(dp[i],abs(a[i]-a[i-j])+dp[i-j]);
-//     }
-//     cout << dp[n-1] << endl;
-// }

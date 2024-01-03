@@ -1,4 +1,4 @@
-// https://atcoder.jp/contests/dp/tasks/dp_b
+// https://www.codechef.com/START107C/problems/MAXIMALEXP
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -12,42 +12,39 @@ using namespace std;
 #define fo1(i,st,en,up) for(int i=st;(i*(up>0?1:-1))<(en*(up>0?1:-1));i+=(up))
 #define deb(x) cout << #x << ": " << x << endl;
 #define TxtIO   freopen("input.txt","r",stdin); freopen("output.txt","w",stdout);
-int n;
-int dp[100001];
 void solve()
-{  
-    int k;cin>>n>>k;
-    vi a(n);
-    for(int &i: a) cin>>i;
-    dp[n]=0;
-
-    
+{
+    int n,k;cin>>n>>k;
+    cout<<((n%k)/2)<<endl;
 }
 signed main()
 {
     IOS
     //TxtIO
     int t=1;
-    // cin >> t;
+    cin >> t;
     while(t--)
     {
         solve();
     }
 }
-// signed main()
-// {
-//     IOS
-//     int n,k;cin>>n>>k;  
-//     vi a(n);
-//     for(int &i: a) cin>>i;
-//     vi dp(n);
-//     dp[0]=0;
-//     dp[1]=abs(a[1]-a[0]);
-//     for(int i =2;i<n;i++)
-//     {
-//         dp[i]=abs(a[i]-a[i-1])+dp[i-1];
-//         for(int j=2;j<=k && j<=i;j++)
-//             dp[i]=min(dp[i],abs(a[i]-a[i-j])+dp[i-j]);
-//     }
-//     cout << dp[n-1] << endl;
-// }
+
+/*
+13 5 
+x%k * (n-x)%k
+
+1 2 3 4 5 6 7 8 9 10 11 12 13
+12 11 10 9 8 7 6 5 4 3 2 1 0
+1 2 3 4 0 1 2 3 4 0 1 2 3
+2 1 0 4 3 2 1 0 4 3 2 1 0
+2 2 0 16 0 2 2 0 16 0 2 2 0
+
+
+9 2 
+1 2 3 4 5 6 7 8 9
+8 7 6 5 4 3 2 1 0
+1 0 1 0 1 0 1 0 1
+0 1 0 1 0 1 0 1 0
+0 0 0 0 0 0 0 0 0
+
+*/

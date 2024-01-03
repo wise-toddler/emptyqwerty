@@ -39,3 +39,16 @@ signed main()
     }    
     cout<<ans<<endl;
 }
+/*
+SortedMap<Integer, Integer> map = new TreeMap<>();
+mp.put(a[i], mp.getOrDefault(a[i], 0) + 1);
+int mx = map.lastKey(), mn = map.firstKey();
+while (mx - mn > k) {
+    mp.put(a[j], mp.get(a[j]) - 1);
+    if (mp.get(a[j]) == 0) mp.remove(a[j]);
+    mx = map.lastKey();
+    mn = map.firstKey();
+    j++;
+}
+ans += i - j + 1;
+*/
