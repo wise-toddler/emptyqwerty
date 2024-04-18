@@ -1,4 +1,4 @@
-package kshitjSir;
+// package kshitjSir;
 class Sep15Optimization
 {
     public static void rangeSumQueries(int[] A, int[][] queries)

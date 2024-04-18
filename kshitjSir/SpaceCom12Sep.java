@@ -1,4 +1,4 @@
-package kshitjSir;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 class SpaceCom12Sep

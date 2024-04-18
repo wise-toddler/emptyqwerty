@@ -1,4 +1,4 @@
-package kshitjSir;
+// package kshitjSir;
 
 class person {
     String name;

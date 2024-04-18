@@ -1,4 +1,4 @@
-package kshitjSir;
+
 class optimization14Sep
 {
     public static int abeforeg(String A)

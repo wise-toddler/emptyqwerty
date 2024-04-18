@@ -1,4 +1,4 @@
-package kshitjSir.imageEditor;
+package imageEditor;
 
 import javax.swing.*;
 import java.awt.*;
