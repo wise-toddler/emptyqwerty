@@ -1,4 +1,4 @@
-// https://codeforces.com/contest/1974/problem/E
+// https://codeforces.com/contest/1829/problem/G
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -20,32 +20,56 @@ using namespace std;
 #define deb(x) cout << #x << ": " << x << endl;
 #define TxtIO freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
 template<typename T>istream& operator>>(istream& is, v<T>& v){for(auto& x : v)is >> x;return is;}
-template<typename T>ostream& operator<<(ostream& os, v<T>& v){for(auto& x : v)os << x << ' ';return os;}
+template<typename T>ostream& operator<<(ostream& os, v<T> v){for(auto& x : v)os << x << ' ';return os;}
+vvi a;
+int psq(int l,int r,int i)
+{
+    l=max(0ll,l),r=min(i,r);
+    int sum=a[i][r];
+    if(l>0) sum-=a[i][l-1];
+    return sum;
+}
+void prefixsum(vi &a)
+{
+    fo1(i,1,a.size(),1) a[i]+=a[i-1];
+}
+void pre()
+{
+    // a.pb({1});
+    int st=1;
+    fo1(i,1,2024,1)
+    {
+        vi temp;
+        fo1(j,st,st+i,1) temp.pb((j*j));
+        prefixsum(temp);
+        a.pb(temp);
+        st+=i;
+    }
+}
+#define f(x) x*(x+1)/2
 void solve()
 {
-    int m,c;cin >> m >> c;
-    int ans=0,cc=0;
-    v<pii> a(m);
-    int su=0;
-    int inf=1e18;
-    for(auto &x:a) cin >> x.ff >> x.ss,su+=x.ss;
-    vi dp(su+1,inf);
-    dp[0]=0;
-    fon(i,m)
-        for(int j=su;j>=a[i].ss;j--)
-            if(dp[j-a[i].ss]+a[i].ff<=c*i)
-                dp[j]=min(dp[j],dp[j-a[i].ss]+a[i].ff);
-    fon_(i,su+1)
-        if(dp[i]!=inf)
-        {
-            cout << i << endl;
-            return;
-        }
+    int n; cin>> n;
+    int i=-1,j=-1;
+    int k=1;
+    while(f(k)<n) k++;
+    i=k-1;
+    j=n-f(i)-1;
+    int ans=0;
+    fon_(p,i+1)
+    {
+        int l=j-i+p,r=j;
+        ans+=psq(l,r,p);
+    }
+    cout << ans << endl;
+    
+    
 }
 signed main()
 {
     IOS
     //TxtIO
+    pre();
     int t=1;
     cin >> t;
     while(t--)
@@ -54,8 +78,4 @@ signed main()
         // cout << (solve() ? "YES" : "NO") << endl;
         // cout << (solve() ? "Alice" : "Bob") << endl;
     }
-    // fo1(i,-4,-8,-1)
-        // cout << i << endl;
-    // cout << " makkan "<< endl;
-    
 }

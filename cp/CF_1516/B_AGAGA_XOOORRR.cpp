@@ -19,30 +19,18 @@ using namespace std;
 template<typename T>istream& operator>>(istream& is, v<T>& v){for(auto& x : v)is >> x;return is;}
 template<typename T>ostream& operator<<(ostream& os, v<T>& v){for(auto& x : v)os << x << ' ';return os;}
 template<typename E>class mstack : public stack<E> {public: E pop(){E a=this->top();stack<E>::pop();return a;}};
-void solve()
+bool solve()
 {
     int n;cin >> n;
     vi a(n);cin >> a;
-    vi bits(32,0);
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<32;j++)
-        {
-            if(a[i]&(1<<j))
-            {
-                bits[j]++;
-            }
-        }
-    }
-    for(int i=0;i<32;i++)
-    {
-        if(bits[i]%2)
-        {
-            cout << "NO" << endl;
-            return;
-        }
-    }
-    cout << "YES" << endl;
+    vi pre(n);
+    pre[0]=a[0];
+    fon(i,n-1) pre[i+1]=pre[i]^a[i+1];
+    bool yes=!pre[n-1];
+    fon(i,n)
+        fo1(j,i+1,n-1,1) 
+            yes|=(pre[i]==(pre[j]^pre[i]) && pre[i]==(pre[n-1]^pre[j]));
+    return yes;
 }
 signed main()
 {
@@ -52,6 +40,7 @@ signed main()
     cin >> t;
     while(t--)
     {
-        solve();
+        // solve();
+        cout << (solve() ? "YES" : "NO") << endl;
     }
 }

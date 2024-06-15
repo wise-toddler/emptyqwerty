@@ -1,4 +1,4 @@
-// https://codeforces.com/contest/1974/problem/E
+// https://atcoder.jp/contests/abc356/tasks/abc356_c
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -20,42 +20,63 @@ using namespace std;
 #define deb(x) cout << #x << ": " << x << endl;
 #define TxtIO freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
 template<typename T>istream& operator>>(istream& is, v<T>& v){for(auto& x : v)is >> x;return is;}
-template<typename T>ostream& operator<<(ostream& os, v<T>& v){for(auto& x : v)os << x << ' ';return os;}
+template<typename T>ostream& operator<<(ostream& os, v<T> v){for(auto& x : v)os << x << ' ';return os;}
 void solve()
 {
-    int m,c;cin >> m >> c;
-    int ans=0,cc=0;
-    v<pii> a(m);
-    int su=0;
-    int inf=1e18;
-    for(auto &x:a) cin >> x.ff >> x.ss,su+=x.ss;
-    vi dp(su+1,inf);
-    dp[0]=0;
+    int n,m,k;cin >> n >> m >> k;
+    // generate all bitmasks of length n
+    vvi in;
+    v<bool> res;
     fon(i,m)
-        for(int j=su;j>=a[i].ss;j--)
-            if(dp[j-a[i].ss]+a[i].ff<=c*i)
-                dp[j]=min(dp[j],dp[j-a[i].ss]+a[i].ff);
-    fon_(i,su+1)
-        if(dp[i]!=inf)
+    {
+        int nn;cin >> nn;
+        vi a(nn);cin >> a;
+        in.pb(a);
+        char c;cin >> c;
+        res.pb(c=='o');
+    }
+    // for(auto i:res)
+    // {
+    //     cout << (i?1:0) << " ";
+    // }
+    // cout << endl;
+    nl
+    int nn = 1<<n;
+    int ans=0;
+    fon(p,nn)
+    {
+        
+        int pp = 0;
+        fon(i,m)
         {
-            cout << i << endl;
-            return;
+            int cnt=0;
+            for(auto x : in[i])
+                if((p>>(x-1))&1)
+                    cnt++;
+            if((cnt>=k)==res[i])
+            {
+                pp++;
+                // deb(cnt)
+                // deb(i)
+                // // const int a=n;
+                // cout << bitset<3>(p)<< endl; nl
+            }
         }
+        ans+=(pp==m);
+    }
+    cout << ans << endl;
+
 }
 signed main()
 {
     IOS
     //TxtIO
     int t=1;
-    cin >> t;
+    // cin >> t;
     while(t--)
     {
         solve();
         // cout << (solve() ? "YES" : "NO") << endl;
         // cout << (solve() ? "Alice" : "Bob") << endl;
     }
-    // fo1(i,-4,-8,-1)
-        // cout << i << endl;
-    // cout << " makkan "<< endl;
-    
 }

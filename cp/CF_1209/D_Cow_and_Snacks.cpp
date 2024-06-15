@@ -1,4 +1,4 @@
-// https://codeforces.com/contest/1974/problem/E
+// https://codeforces.com/contest/1209/problem/D
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -20,42 +20,53 @@ using namespace std;
 #define deb(x) cout << #x << ": " << x << endl;
 #define TxtIO freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
 template<typename T>istream& operator>>(istream& is, v<T>& v){for(auto& x : v)is >> x;return is;}
-template<typename T>ostream& operator<<(ostream& os, v<T>& v){for(auto& x : v)os << x << ' ';return os;}
+template<typename T>ostream& operator<<(ostream& os, v<T> v){for(auto& x : v)os << x << ' ';return os;}
+class dsu
+{
+public:
+    vector<int> p;
+    dsu(int n)
+    {
+        p.resize(n);
+        iota(all(p),0);   
+    }
+    int get(int x)
+    {
+        return (x==p[x] ? x : p[x]=get(p[x]));
+    }
+    int add(int x,int y)
+    {
+        x=get(x);
+        y=get(y);
+        if(x==y)
+            return 1;
+        p[x]=y;
+        return 0;
+    }
+};
 void solve()
 {
-    int m,c;cin >> m >> c;
-    int ans=0,cc=0;
-    v<pii> a(m);
-    int su=0;
-    int inf=1e18;
-    for(auto &x:a) cin >> x.ff >> x.ss,su+=x.ss;
-    vi dp(su+1,inf);
-    dp[0]=0;
+    int n,m;cin >> n>>m;
+    dsu d(n);
+    int ans=0;
     fon(i,m)
-        for(int j=su;j>=a[i].ss;j--)
-            if(dp[j-a[i].ss]+a[i].ff<=c*i)
-                dp[j]=min(dp[j],dp[j-a[i].ss]+a[i].ff);
-    fon_(i,su+1)
-        if(dp[i]!=inf)
-        {
-            cout << i << endl;
-            return;
-        }
+    {
+        int x,y;cin >> x >> y;
+        x--,y--;
+        ans+=d.add(x,y);
+    }    
+    cout << ans << endl;
 }
 signed main()
 {
     IOS
     //TxtIO
     int t=1;
-    cin >> t;
+    // cin >> t;
     while(t--)
     {
         solve();
         // cout << (solve() ? "YES" : "NO") << endl;
         // cout << (solve() ? "Alice" : "Bob") << endl;
     }
-    // fo1(i,-4,-8,-1)
-        // cout << i << endl;
-    // cout << " makkan "<< endl;
-    
 }

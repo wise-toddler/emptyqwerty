@@ -1,4 +1,4 @@
-// https://codeforces.com/contest/1974/problem/E
+// https://codeforces.com/contest/1979/problem/D
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -20,27 +20,20 @@ using namespace std;
 #define deb(x) cout << #x << ": " << x << endl;
 #define TxtIO freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
 template<typename T>istream& operator>>(istream& is, v<T>& v){for(auto& x : v)is >> x;return is;}
-template<typename T>ostream& operator<<(ostream& os, v<T>& v){for(auto& x : v)os << x << ' ';return os;}
+template<typename T>ostream& operator<<(ostream& os, v<T> v){for(auto& x : v)os << x << ' ';return os;}
 void solve()
 {
-    int m,c;cin >> m >> c;
-    int ans=0,cc=0;
-    v<pii> a(m);
-    int su=0;
-    int inf=1e18;
-    for(auto &x:a) cin >> x.ff >> x.ss,su+=x.ss;
-    vi dp(su+1,inf);
-    dp[0]=0;
-    fon(i,m)
-        for(int j=su;j>=a[i].ss;j--)
-            if(dp[j-a[i].ss]+a[i].ff<=c*i)
-                dp[j]=min(dp[j],dp[j-a[i].ss]+a[i].ff);
-    fon_(i,su+1)
-        if(dp[i]!=inf)
-        {
-            cout << i << endl;
-            return;
-        }
+    int n,k;cin >> n >> k;
+    string s;cin >> s;
+    // check if 0*k followed by 1*k substring is present
+    // if not then check if 1*k followed by 0*k substring is present
+    auto ch1=[&](string s)
+    {
+        string kk = string(k, '0');
+        string kk1 = string(k, '1');
+        // return s.find(kk) != string::npos || s.find(kk1) != string::npos;
+    };
+    bool ch=ch1(s);
 }
 signed main()
 {
@@ -54,8 +47,4 @@ signed main()
         // cout << (solve() ? "YES" : "NO") << endl;
         // cout << (solve() ? "Alice" : "Bob") << endl;
     }
-    // fo1(i,-4,-8,-1)
-        // cout << i << endl;
-    // cout << " makkan "<< endl;
-    
 }

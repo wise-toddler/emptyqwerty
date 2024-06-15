@@ -1,4 +1,4 @@
-// https://codeforces.com/contest/1974/problem/E
+// https://www.codechef.com/START136B/problems/FIRSTGEO
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -21,26 +21,16 @@ using namespace std;
 #define TxtIO freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
 template<typename T>istream& operator>>(istream& is, v<T>& v){for(auto& x : v)is >> x;return is;}
 template<typename T>ostream& operator<<(ostream& os, v<T>& v){for(auto& x : v)os << x << ' ';return os;}
-void solve()
+int solve()
 {
-    int m,c;cin >> m >> c;
-    int ans=0,cc=0;
-    v<pii> a(m);
-    int su=0;
-    int inf=1e18;
-    for(auto &x:a) cin >> x.ff >> x.ss,su+=x.ss;
-    vi dp(su+1,inf);
-    dp[0]=0;
-    fon(i,m)
-        for(int j=su;j>=a[i].ss;j--)
-            if(dp[j-a[i].ss]+a[i].ff<=c*i)
-                dp[j]=min(dp[j],dp[j-a[i].ss]+a[i].ff);
-    fon_(i,su+1)
-        if(dp[i]!=inf)
-        {
-            cout << i << endl;
-            return;
-        }
+    string s;cin >> s;
+    if(s=="0000") return 1;
+    if(s=="1111") return 441;
+    if(s=="0001" || s=="0010" || s=="0100" || s=="1000" ) return 11;
+    if(s=="1100" || s=="0011") return 21;
+    if(s=="1010" || s=="0101" || s=="1001" || s=="0110")  return 121;
+    if(s=="1110" || s=="1101" || s=="1011" || s=="0111") return 231;
+    return 0000;
 }
 signed main()
 {
@@ -50,12 +40,9 @@ signed main()
     cin >> t;
     while(t--)
     {
-        solve();
+        cout << solve() << endl;
+        // solve();
         // cout << (solve() ? "YES" : "NO") << endl;
         // cout << (solve() ? "Alice" : "Bob") << endl;
     }
-    // fo1(i,-4,-8,-1)
-        // cout << i << endl;
-    // cout << " makkan "<< endl;
-    
 }

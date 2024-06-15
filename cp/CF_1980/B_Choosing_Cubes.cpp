@@ -1,4 +1,4 @@
-// https://codeforces.com/contest/1974/problem/E
+// https://codeforces.com/contest/1980/problem/B
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
@@ -20,27 +20,31 @@ using namespace std;
 #define deb(x) cout << #x << ": " << x << endl;
 #define TxtIO freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
 template<typename T>istream& operator>>(istream& is, v<T>& v){for(auto& x : v)is >> x;return is;}
-template<typename T>ostream& operator<<(ostream& os, v<T>& v){for(auto& x : v)os << x << ' ';return os;}
+template<typename T>ostream& operator<<(ostream& os, v<T> v){for(auto& x : v)os << x << ' ';return os;}
 void solve()
 {
-    int m,c;cin >> m >> c;
-    int ans=0,cc=0;
-    v<pii> a(m);
-    int su=0;
-    int inf=1e18;
-    for(auto &x:a) cin >> x.ff >> x.ss,su+=x.ss;
-    vi dp(su+1,inf);
-    dp[0]=0;
-    fon(i,m)
-        for(int j=su;j>=a[i].ss;j--)
-            if(dp[j-a[i].ss]+a[i].ff<=c*i)
-                dp[j]=min(dp[j],dp[j-a[i].ss]+a[i].ff);
-    fon_(i,su+1)
-        if(dp[i]!=inf)
-        {
-            cout << i << endl;
-            return;
-        }
+    int n,f,k;cin >> n >> f >> k;
+    vi a(n);cin >> a;
+    int num=a[f-1];
+    k--;
+    sort(all(a),greater<int>());
+    int l= find(all(a),num)-a.begin(); // 0 based index
+    int r= find(all(a),num)-a.begin()+count(all(a),num)-1; // 0 based index
+    // 1 occurence of num 
+    // deb(l)deb(r)
+    if(k<l) 
+    {
+        cout << "NO" << endl;
+    }
+    else if(k>=r)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "MAYBE" << endl;
+    }
+
 }
 signed main()
 {
@@ -54,8 +58,4 @@ signed main()
         // cout << (solve() ? "YES" : "NO") << endl;
         // cout << (solve() ? "Alice" : "Bob") << endl;
     }
-    // fo1(i,-4,-8,-1)
-        // cout << i << endl;
-    // cout << " makkan "<< endl;
-    
 }

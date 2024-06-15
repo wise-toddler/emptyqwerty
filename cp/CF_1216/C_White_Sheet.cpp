@@ -28,8 +28,8 @@ bool solve()
     int x5,y5,x6,y6;cin >> x5 >> y5 >> x6 >> y6;
     
     v<pii> v;
-    if(x3<=x1 and x1<=x4) v.pb({max(y1,y3),min(y2,y4)});
-    if(x5<=x1 and x1<=x6) v.pb({max(y1,y5),min(y2,y6)});
+    if(x3<=x1 and x1<=x4 and y2>=y3 and y1<=y4) v.pb({max(y1,y3),min(y2,y4)});
+    if(x5<=x1 and x1<=x6 and y2>=y5 and y1<=y6) v.pb({max(y1,y5),min(y2,y6)});
     // deb(v.size())
     if(v.size()==0) return 0;
     if(v.size()==1) if(v[0].ff!=y1 or v[0].ss!=y2) return 0;
@@ -42,8 +42,8 @@ bool solve()
     }
     v.clear();
     // return 1;
-    if(y3<=y1 and y1<=y4) v.pb({max(x1,x3),min(x2,x4)});
-    if(y5<=y1 and y1<=y6) v.pb({max(x1,x5),min(x2,x6)});
+    if(y3<=y1 and y1<=y4 and x2>=x3 and x1<=x4) v.pb({max(x1,x3),min(x2,x4)});
+    if(y5<=y1 and y1<=y6 and x2>=x5 and x1<=x6) v.pb({max(x1,x5),min(x2,x6)});
     // deb(v.size())
     if(v.size()==0) return 0;
     if(v.size()==1) if(v[0].ff!=x1 or v[0].ss!=x2) return 0;
@@ -54,8 +54,8 @@ bool solve()
         if(v[0].ss < v[1].ff) return 0;
     }
     v.clear();
-    if(x3<=x2 and x2<=x4) v.pb({max(y1,y3),min(y2,y4)});
-    if(x5<=x2 and x2<=x6) v.pb({max(y1,y5),min(y2,y6)});
+    if(x3<=x2 and x2<=x4 and y2>=y3 and y1<=y4) v.pb({max(y1,y3),min(y2,y4)});
+    if(x5<=x2 and x2<=x6 and y2>=y5 and y1<=y6) v.pb({max(y1,y5),min(y2,y6)});
     if(v.size()==0) return 0;
     if(v.size()==1) if(v[0].ff!=y1 or v[0].ss!=y2) return 0;
     if(v.size()==2)
