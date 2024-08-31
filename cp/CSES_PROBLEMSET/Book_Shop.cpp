@@ -26,16 +26,31 @@ void solve()
     vvi a(n,vi(2));
     fon(i,n)cin>>a[i][0];
     fon(i,n)cin>>a[i][1];
-    vvi dp(n+1,vi(x+1,-1));
-    function<int(int,int)> f = [&](int i,int x)
+    // vvi dp(n+1,vi(x+1,-1));
+    // function<int(int,int)> f = [&](int i,int x)
+    // {
+    //     if(i==n || x==0)return 0ll;
+    //     int &an = dp[i][x]; if(an!=-1)return an;
+    //     an = f(i+1,x);
+    //     if(a[i][0]<=x)an = max(an,f(i+1,x-a[i][0])+a[i][1]);
+    //     return an;    
+    // };
+    vvi dp(2,vi(x+1,0));
+    fo1(i,n,-1,-1)
     {
-        if(i==n || x==0)return 0ll;
-        int &an = dp[i][x]; if(an!=-1)return an;
-        an = f(i+1,x);
-        if(a[i][0]<=x)an = max(an,f(i+1,x-a[i][0])+a[i][1]);
-        return an;    
-    };
-    cout<<f(0,x)<<endl;
+        fon(j,x+1)
+        {
+            int &an = dp[i&1][j];
+            if(i==n || j==0)an = 0;
+            else 
+            {
+                an = dp[(i+1)&1][j];
+                if(a[i][0]<=j)an = max(an,dp[(i+1)&1][j-a[i][0]]+a[i][1]);
+            }
+        }
+    }
+    cout<<dp[0][x]<<endl;
+    // cout<<f(0,x)<<endl;/
 }
 signed main()
 {

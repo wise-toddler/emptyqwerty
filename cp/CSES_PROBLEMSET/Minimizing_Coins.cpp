@@ -32,7 +32,7 @@ void solve()
     int n,s;cin>>n>>s;
     vi a(n);cin>>a;
     memset(dp,-1,sizeof(dp));
-    sort(all(a),greater<int>());
+    sort(all(a),greater<int>()); // because we are taking minimum coins
     cout << (f(s,a)==1e9?-1:f(s,a))<< endl;
 }
 signed main()

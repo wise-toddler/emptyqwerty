@@ -1,9 +1,6 @@
 cp/.cph/
-kshitjSir/*.class
 .cph
 .vscode
 .prettierrc
 .gitignore
-cp/mis/.cph
-kshitjSir/kshitjSir/
 .venv
