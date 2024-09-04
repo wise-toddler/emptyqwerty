@@ -4,4 +4,4 @@ cp/.cph/
 .prettierrc
 .gitignore
 .venv
-sandbox
+sandbox/
